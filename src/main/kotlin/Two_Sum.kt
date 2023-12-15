@@ -7,22 +7,14 @@ fun main(args: Array<String>) {
 }
 
 fun twoSum(nums: IntArray, target: Int): IntArray {
-    var result : IntArray = intArrayOf()
-    for (i in 0..nums.size-1){
-        for (j in 0..nums.size-1){
-            if (nums[i]+ nums[j] == target && i != j){
-                if (!result.contains(i) && result.contains(j))
-                result = addElement(result, i)
-                result = addElement(result, j)
-            }
+    val hashMap : HashMap<Int,Int> = hashMapOf()
+
+    for (i in 0.. nums.size){
+    val kalan : Int = target - nums[i]
+        if (hashMap.contains(kalan)){
+            return intArrayOf(hashMap[kalan]!!,i)
         }
+        hashMap[nums[i]] = i
     }
-    return result
-}
-
-
-fun addElement(arr: IntArray, element: Int): IntArray {
-    val mutableArray = arr.toMutableList()
-    mutableArray.add(element)
-    return mutableArray.toIntArray()
+    throw IllegalStateException("no pair found")
 }
