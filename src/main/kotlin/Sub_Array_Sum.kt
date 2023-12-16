@@ -3,6 +3,7 @@ import java.awt.List
 fun main(args: Array<String>) {
     var array: IntArray = intArrayOf(2,1,5,1,3,2)
     SubArrayBruteForce(array, 3)
+    SubArraySlidingWindow(array, 3)
 }
 
 fun SubArrayBruteForce(nums: IntArray, target: Int): Int {
@@ -23,4 +24,23 @@ fun SubArrayBruteForce(nums: IntArray, target: Int): Int {
     println(sum)
     return sum
     //throw InterruptedException("no pair found")
+}
+
+
+fun SubArraySlidingWindow(nums: IntArray, target: Int): Int {
+    var sum : Int = 0
+    var fakeSum: Int = 0
+    for (i in 0 until target){
+        fakeSum += nums[i]
+    }
+
+    for (j in 1..nums.size-target){
+        fakeSum = fakeSum + nums[j+target-1] - nums[j-1]
+
+        if (fakeSum > sum){
+            sum = fakeSum
+        }
+    }
+    println(sum)
+    return sum
 }
