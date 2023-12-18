@@ -3,33 +3,19 @@ import kotlin.math.max
 fun main(args: Array<String>) {
     var nums1 : IntArray = intArrayOf(1,2)
     var nums2 : IntArray = intArrayOf(3,4)
-
+    findMedianSortedArrays(nums1,nums2)
 
 }
 
 fun findMedianSortedArrays(nums1: IntArray, nums2: IntArray): Double {
 
+    var a = nums1 + nums2
+    println(a)
+    for (x in 0 .. nums1.size-1){
 
-    return -1.0
-}
-
-
-fun lengthOfLongestSubstring2(s: String): Int {
-    var i = 0
-    var j = 0
-    var max = 0
-    val  hashSet = mutableSetOf<Char>()
-    while (i < s.length){
-        if (!hashSet.contains(s[i])){
-            hashSet.add(s[i])
-            i++
-            max = max(max, hashSet.size)
-        }
-        else{
-            hashSet.remove(s[j])
-            j++
-        }
     }
-    return max
+    for (j in 0 .. nums2.size-1){
 
+    }
+    return -1.0
 }
