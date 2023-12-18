@@ -11,18 +11,15 @@ fun main(args: Array<String>) {
 fun findMedianSortedArrays(nums1: IntArray, nums2: IntArray): Double {
 
     var a = nums1 + nums2
-    println()
-    if (false){
+    if (a.size%2 == 0){
         var c:Double = ((a.size /2)-1).toDouble()
-        println(c)
         var z: Double = (a[c.toInt()] + a[(c + 1.0).toInt()]) / 2.0
-        println(z)
         return z
     }
      else{
         var f:Int = ((a.size /2))
         var g: Double = a[f].toDouble()
-        println(g)
+        return g
     }
-    return -1.0
+
 }
