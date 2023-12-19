@@ -2,12 +2,12 @@ import kotlin.math.max
 
 fun main(args: Array<String>) {
 
-    var string : String = "babad"
-    longestPalindrome(string)
-
+    var string : String = "aaaa"
+    longestPalindromeBruteForce(string)
+    println( longestPalindromeSlidingWindow(string))
 }
 
-fun longestPalindrome(s: String): String {
+fun longestPalindromeBruteForce(s: String): String {
     var a:String=""
     var maxi = 0
     var fakeMax=0
@@ -29,4 +29,38 @@ fun longestPalindrome(s: String): String {
         f++
     }
     return a
+}
+
+fun longestPalindromeSlidingWindow(s: String): String {
+    var len = s.length
+    var longestPalindromeSlidingWindow = s[0].toString()
+    if (len == 1) return longestPalindromeSlidingWindow
+    for (i in 1 until len){
+        var l = i-1
+        var r = i
+        if (s[l] == s[r]){
+            if (l-1 >= 0 && s[l-1] == s[r]){
+                l--
+            }
+        }
+        else
+        {
+            if (l-1 >= 0 && s[l-1] == s[r]){
+                l--
+            }
+        }
+        while (l>=0 && r < len && s[l] == s[r]){
+            l--
+            r++
+        }
+        l++
+        r--
+        if (l != r){
+            val tempPalindrome = s.substring(l,r+1)
+            if (tempPalindrome.length > longestPalindromeSlidingWindow.length){
+                longestPalindromeSlidingWindow = tempPalindrome
+            }
+        }
+    }
+    return longestPalindromeSlidingWindow
 }
