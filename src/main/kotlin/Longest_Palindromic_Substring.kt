@@ -2,7 +2,7 @@ import kotlin.math.max
 
 fun main(args: Array<String>) {
 
-    var string : String = "aaaa"
+    var string : String = "babad"
     longestPalindromeBruteForce(string)
     println( longestPalindromeSlidingWindow(string))
 }
@@ -32,35 +32,22 @@ fun longestPalindromeBruteForce(s: String): String {
 }
 
 fun longestPalindromeSlidingWindow(s: String): String {
-    var len = s.length
-    var longestPalindromeSlidingWindow = s[0].toString()
-    if (len == 1) return longestPalindromeSlidingWindow
-    for (i in 1 until len){
-        var l = i-1
-        var r = i
-        if (s[l] == s[r]){
-            if (l-1 >= 0 && s[l-1] == s[r]){
-                l--
+    var res = ""; var resLen = 0
+
+    fun findLongest(l: Int, r: Int) {
+        var l = l; var r = r;
+        while (l >= 0 && r < s.length && s[l] == s[r]) {
+            if (r - l + 1 > resLen) {
+                resLen = r - l + 1;
+                res = s.substring(l, r + 1)
             }
-        }
-        else
-        {
-            if (l-1 >= 0 && s[l-1] == s[r]){
-                l--
-            }
-        }
-        while (l>=0 && r < len && s[l] == s[r]){
-            l--
-            r++
-        }
-        l++
-        r--
-        if (l != r){
-            val tempPalindrome = s.substring(l,r+1)
-            if (tempPalindrome.length > longestPalindromeSlidingWindow.length){
-                longestPalindromeSlidingWindow = tempPalindrome
-            }
+            l --; r++
         }
     }
-    return longestPalindromeSlidingWindow
+
+    for (i in 0 until s.length) {
+        findLongest(i, i) // odd
+        findLongest(i, i + 1) // even
+    }
+    return res
 }
