@@ -8,38 +8,42 @@ fun main(args: Array<String>) {
 }
 
 fun longestPalindrome(s: String): String {
-    var stringList: MutableList<String> = mutableListOf()
     var fakeList: MutableList<String> = mutableListOf()
     var resultList: MutableList<String> = mutableListOf()
-
+    var a:String=""
     var maxi = 0
     var fakeMax=0
-
-    for (x in s){
-    stringList.add(x.toString())
-    }
+    var t = ""
 
     var f = 0
-    for (j in 0..stringList.size-1){
-        for (z in f..stringList.size-1){
-            fakeList.add(stringList[z])
-            if (fakeList == fakeList.reversed()){
-                maxi = max(maxi, fakeList.size)
-
+   while (f < s.length){
+        for (z in f..s.length-1){
+            //fakeList.add(s[z].toString())
+            t+= s[z]
+            if (t == t.reversed()){
+                maxi = max(maxi, t.length)
                 if (maxi > fakeMax){
-                    resultList.clear()
+                    //resultList.clear()
+                    a=""
+
                     fakeMax = maxi
-                    resultList = (resultList + fakeList).toMutableList()
+                    a = t
+
+
+                    //resultList = (resultList + fakeList).toMutableList()
                 }
             }
+
         }
         fakeList.clear()
+       t = ""
         f++
     }
-    var a:String=""
 
-    for (v in resultList){
-        a += v
-    }
+    println(a)
+    //for (v in resultList){
+        //a += v
+    //}
+    //println(a)
     return a
 }
