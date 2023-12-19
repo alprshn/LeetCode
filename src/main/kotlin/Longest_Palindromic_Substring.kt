@@ -6,6 +6,11 @@ fun main(args: Array<String>) {
 }
 
 fun longestPalindrome(s: String): String {
+    var stringList: MutableList<String> = mutableListOf()
 
+    for (x in s){
+    stringList.add(x.toString())
+    }
+    println(stringList)
     return ""
 }
