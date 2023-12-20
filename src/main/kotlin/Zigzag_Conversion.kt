@@ -23,6 +23,7 @@ fun convert(s: String, numRows: Int): String {
                 r += ((numRows * 2) - 2)
             }
             else{
+                j += s[r]
                 j += s[r+e]
                 j += s[r+z]
                 println(j)
