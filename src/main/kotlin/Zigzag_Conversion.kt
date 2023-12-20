@@ -13,20 +13,18 @@ fun convert(s: String, numRows: Int): String {
 
     for (x in 1 until s.length ){
         //println(x)
-        var f:Int = ((numRows * 2)-1) + x
-        j += s[x] + s[f].toString()
+        //var f:Int = ((numRows * 2)-1) + x
+        //j += s[x] + s[f].toString()
+        var r = x
+        while (r < s.length-1){
+            j += s[r]
+            r += ((numRows * 2) - 1)
 
-        if (x == 1 || x == 6){
-            println(j)
         }
-        if (x != 1 ||  x != 6){
-            println("_")
-        }
+        println(j)
+        j = ""
+
     }
 
-    var a =0
-    while (a < s.length){
-
-    }
     return ""
 }
