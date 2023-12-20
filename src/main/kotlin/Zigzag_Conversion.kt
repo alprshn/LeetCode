@@ -15,12 +15,19 @@ fun convert(s: String, numRows: Int): String {
         //println(x)
         //var f:Int = ((numRows * 2)-1) + x
         //j += s[x] + s[f].toString()
-        var e = (numRows-2)*2
+        var e = (numRows-1)*2
         var z = 0
         var r = x
         while (r <= s.length-1 && r >= 0){
+            if (e == 0 || e == (numRows-2)*2){
                 j += s[r]
                 r += ((numRows * 2) - 2)
+            }
+            else{
+                j += s[r+e]
+                j += s[r+z]
+                r += ((numRows * 2) - 2)
+            }
         }
         e -=2
         z +=2
