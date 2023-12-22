@@ -8,36 +8,23 @@ fun main(args: Array<String>) {
 }
 
 fun convert(s: String, numRows: Int): String {
-
-    var j =""
-    var e = (numRows-1)*2
-    var z = 0
-    for (x in 0 until numRows){
-        //println(x)
-        //var f:Int = ((numRows * 2)-1) + x
-        //j += s[x] + s[f].toString()
-        var r = x
-        while (r <= s.length-1 && r >= 0){
-            if (e == 0 || e == (numRows-1)*2){
-                j += s[r]
-                r += ((numRows * 2) - 2)
-            }
-            else{
-                j += s[r]
-                j += s[r+e]
-                j += s[r+z]
-                println(j)
-                r += ((numRows * 2) - 2)
-            }
-        }
-        e -=2
-        z +=2
-
-        println(j)
-        j = ""
-
-
+    if (numRows == 1) {
+        return s
     }
 
-    return ""
+    val result = StringBuilder()
+    val n = s.length
+    val interval = 2 * numRows - 2
+
+    for (i in 0 until numRows) {
+        for (j in i until n step interval) {
+            result.append(s[j])
+            if (i != 0 && i != numRows - 1 && j + interval - 2 * i < n) {
+                result.append(s[j + interval - 2 * i])
+            }
+        }
+    }
+    println(result.toString())
+    return result.toString()
+
 }
