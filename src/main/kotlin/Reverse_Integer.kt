@@ -8,11 +8,17 @@ fun main(args: Array<String>) {
 fun reverse(x: Int): Int {
     var stringNumber: String = x.toString()
     var c = stringNumber.length-1
+    if (stringNumber[0] == '-'){
+        val fakeString = stringNumber[0]
+
+        stringNumber = stringNumber.substring(1, c + 1) + fakeString
+    }
+    println(stringNumber)
+
     var result:String= ""
-    while (0 < stringNumber.length-1){
-        if (stringNumber[c] != '-'){
+
+    while (0 < c){
             result += stringNumber[c]
-        }
         c--
     }
     println(result)
