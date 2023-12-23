@@ -17,7 +17,7 @@ fun reverse(x: Int): Int {
 
     var result:String= ""
 
-    while (0 < c){
+    while (0 <= c){
             result += stringNumber[c]
         c--
     }
