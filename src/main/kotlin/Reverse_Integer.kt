@@ -2,8 +2,6 @@ import kotlin.math.max
 
 fun main(args: Array<String>) {
 
-    var string : String = "PAYPALISHIRING"
-    var numRows: Int = 4
     reverse(-100)
 }
 
