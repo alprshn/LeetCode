@@ -7,7 +7,6 @@ fun main(args: Array<String>) {
 fun reverse(x: Int): Int {
     var stringNumber: String = x.toString()
     var c = stringNumber.length-1
-
     if (x > Int.MAX_VALUE || x < Int.MIN_VALUE){
         return 0
     }
@@ -18,9 +17,7 @@ fun reverse(x: Int): Int {
         stringNumber = stringNumber.substring(1, c + 1) + fakeString
     }
     //println(stringNumber)
-
     var result:String= ""
-
     while (0 <= c){
             result += stringNumber[c]
         c--
@@ -29,6 +26,6 @@ fun reverse(x: Int): Int {
     try {
         return result.toInt()
     } catch (e: NumberFormatException) {
-        return 0 // Handle overflow by returning 0
+        return 0
     }
 }
