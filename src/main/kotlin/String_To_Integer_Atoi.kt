@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
 
-    var a :String = "Alper100asda1212"
+    var a :String = "Alper-100asda1212"
     myAtoi(a)
 }
 
@@ -8,7 +8,7 @@ fun myAtoi(s: String): Int {
     var result = ""
     for (i in 0 until s.length){
 
-        if (s[i].isDigit()){
+        if (s[i].isDigit() || s[i] == '+'|| s[i] == '-'){
             result += s[i]
             //bir i döngüsü oluştur  buraya girince artsın
             if (!s[i+1].isDigit()){
