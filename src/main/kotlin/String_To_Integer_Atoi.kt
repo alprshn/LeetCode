@@ -6,18 +6,21 @@ fun main(args: Array<String>) {
 
 fun myAtoi(s: String): Int {
     var result = ""
-    for (i in 0 until s.length){
+    if (s[0].isDigit() || (s[0] == ' ')){
+        for (i in 0 until s.length){
 
-        if (s[i].isDigit() || s[i] == '+'|| s[i] == '-'){
-            result += s[i]
-            //bir i döngüsü oluştur  buraya girince artsın
-            if (i < s.length - 1 && !s[i+1].isDigit()){
-                break
+            if (s[i].isDigit() || s[i] == '+'|| s[i] == '-' ){
+                result += s[i]
+                //bir i döngüsü oluştur  buraya girince artsın
+                if (i < s.length - 1 && !s[i+1].isDigit()){
+                    break
+                }
             }
+            //bir i döngüsü oluştur  buraya gelince azalsın
         }
-        //bir i döngüsü oluştur  buraya gelince azalsın
     }
-
-
+    else{
+        return 0
+    }
     return result.toInt()
 }
