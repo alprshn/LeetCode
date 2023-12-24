@@ -1,7 +1,7 @@
 fun main(args: Array<String>) {
 
-    var a :String = "Alper-100asda1212"
-    myAtoi(a)
+    var a :String = "Alper+0100asda1212"
+    println(myAtoi(a))
 }
 
 fun myAtoi(s: String): Int {
@@ -11,12 +11,13 @@ fun myAtoi(s: String): Int {
         if (s[i].isDigit() || s[i] == '+'|| s[i] == '-'){
             result += s[i]
             //bir i döngüsü oluştur  buraya girince artsın
-            if (!s[i+1].isDigit()){
+            if (i < s.length - 1 && !s[i+1].isDigit()){
                 break
             }
         }
         //bir i döngüsü oluştur  buraya gelince azalsın
     }
-    println(result)
-    return 0
+
+
+    return result.toInt()
 }
