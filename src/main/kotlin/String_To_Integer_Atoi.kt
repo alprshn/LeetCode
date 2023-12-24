@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
 
 fun myAtoi(s: String): Int {
     var result = ""
-    if (s[0].isDigit() || (s[0] == ' ')){
+    if (s[0].isDigit() || (s[0] == ' '|| s[0] == '+'|| s[0] == '-')){
         for (i in 0 until s.length){
 
             if (s[i].isDigit() || s[i] == '+'|| s[i] == '-' ){
