@@ -25,6 +25,12 @@ fun isPalindromeBruteForce(x: Int): Boolean {
 }
 
 fun isPalindromeSlidingWindow(x: Int): Boolean {
+    var resultLeft = ""
+    var resultRight = ""
+    while (j >= 0) {
+        resultRight += x[j]
+        j--
+    }
 
     return true
 }
