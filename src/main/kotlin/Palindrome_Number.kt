@@ -2,7 +2,7 @@ fun main(args: Array<String>) {
 
     //var a: Boolean = isPalindromeBruteForce(122)
     //println(a)
-    var b:Boolean = isPalindromeSlidingWindow(121)
+    var b:Boolean = isPalindromeSlidingWindow(123555321)
     println(b.toString())
 }
 
@@ -32,9 +32,14 @@ fun isPalindromeSlidingWindow(x: Int): Boolean {
     var r: Int = sum + 1
     var l: Int = sum - 1
     while (l >= 0 || r <= x.length -1) {
-
-        resultRight += x[r]
-        resultLeft += x[l]
+        if (x.length/2.toDouble() % 2 == 0.0 ){
+            resultRight += x[r]
+            resultLeft += x[l]
+        }
+        else{
+            resultRight += x[r-1]
+            resultLeft += x[l]
+        }
         l--
         r++
     }
