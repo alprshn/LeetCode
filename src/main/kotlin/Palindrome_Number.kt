@@ -43,7 +43,5 @@ fun isPalindromeSlidingWindow(x: Int): Boolean {
         l--
         r++
     }
-
-
     return if (resultRight == resultLeft) return true else false
 }
