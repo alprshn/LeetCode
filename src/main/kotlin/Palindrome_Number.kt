@@ -2,8 +2,9 @@ fun main(args: Array<String>) {
 
     //var a: Boolean = isPalindromeBruteForce(122)
     //println(a)
-    var b:Boolean = isPalindromeSlidingWindow(121)
-    println(b.toString())
+   // var b:Boolean = isPalindromeSlidingWindow(11)
+    //println(b.toString())
+    println(isPalindromeCheckTwo(112211))
 }
 
 fun isPalindromeBruteForce(x: Int): Boolean {
@@ -32,16 +33,28 @@ fun isPalindromeSlidingWindow(x: Int): Boolean {
     var r: Int = sum
     var l: Int = sum
     while (l >= 0 || r <= x.length -1) {
-        if (x.length/2.toDouble() % 2 != 0.0 ){
-            resultRight += x[r+1]
-            resultLeft += x[l-1]
+        if (x.length.toDouble() % 2 != 0.0 ){
+            resultRight += x.getOrNull(r + 1) ?: ""
         }
         else{
-            resultRight += x[r]
-            resultLeft += x[l-1]
+            resultRight += x.getOrNull(r) ?: ""
         }
+        resultLeft += x.getOrNull(l - 1) ?: ""
         l--
         r++
     }
     return if (resultRight == resultLeft) return true else false
+}
+
+fun isPalindromeCheckTwo(x: Int): Boolean {
+    val str = x.toString()
+    val length = str.length
+    val mid = length / 2
+
+    for (i in 0 until mid) {
+        if (str[i] != str[length - i - 1]) {
+            return false
+        }
+    }
+    return true
 }
