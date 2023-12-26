@@ -1,10 +1,9 @@
 fun main(args: Array<String>) {
 
-    var a: Boolean = isPalindromeBruteForce(122)
-    println(a)
-    // var b:Boolean = isPalindromeSlidingWindow(121)
-
-    //println(a.toString())
+    //var a: Boolean = isPalindromeBruteForce(122)
+    //println(a)
+    var b:Boolean = isPalindromeSlidingWindow(121)
+    println(b.toString())
 }
 
 fun isPalindromeBruteForce(x: Int): Boolean {
@@ -21,12 +20,8 @@ fun isPalindromeBruteForce(x: Int): Boolean {
         j--
     }
     println(resultLeft)
-
     println(resultRight)
-
     return if (resultRight == resultLeft) return true else false
-
-
 }
 
 fun isPalindromeSlidingWindow(x: Int): Boolean {
