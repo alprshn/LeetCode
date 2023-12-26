@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
 
-    val a: String = " b11228552307"
+    val a: String = "   -42"
     //println(a.trim())
     println(myAtoi(a))
 }
