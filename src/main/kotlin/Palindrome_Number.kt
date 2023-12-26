@@ -28,14 +28,17 @@ fun isPalindromeSlidingWindow(x: Int): Boolean {
     var x = x.toString()
     var resultLeft = ""
     var resultRight = ""
-    var r: Int = 0
-    var l: Int = x.length - 1
-    while (l >= 0) {
+    var sum: Int = x.length/2
+    var r: Int = sum + 1
+    var l: Int = sum - 1
+    while (l >= 0 || r <= x.length -1) {
 
-        resultRight += x[l]
+        resultRight += x[r]
+        resultLeft += x[l]
         l--
         r++
     }
+
 
     return if (resultRight == resultLeft) return true else false
 }
