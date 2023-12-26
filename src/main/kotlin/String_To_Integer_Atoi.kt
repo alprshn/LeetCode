@@ -1,52 +1,53 @@
 fun main(args: Array<String>) {
 
-    var a: String = "42"
+    val a: String = " b11228552307"
+    //println(a.trim())
     println(myAtoi(a))
 }
 
 fun myAtoi(s: String): Int {
-    var result = ""
-    if (s.isEmpty() || s.length == 1 && !s[0].isDigit()) return 0
-
-    if (s[0].isDigit() || (s[0] == ' ' || s[0] == '+' || s[0] == '-')) {
-        for (i in 0 until s.length) {
-            if ((s[i] == '+' && (i < s.length - 1 && (s[i + 1] == '-' || !s[i + 1].isDigit()))) ||
-                (s[i] == '-' && (i < s.length - 1 && (s[i + 1] == '+' || !s[i + 1].isDigit()))) ||
-                (s[i] == '-' && (i < s.length - 1 && (s[i + 1] == '-' || !s[i + 1].isDigit()))) ||
-                (s[i] == '+' && (i < s.length - 1 && (s[i + 1] == '+') || !s[i + 1].isDigit()))) {
-                return 0
-            }
-            if (s[i].isDigit() || s[i] == '+' || s[i] == '-') {
-                result += s[i]
-                //bir i döngüsü oluştur  buraya girince artsın
-                if (i < s.length - 1 && !s[i + 1].isDigit()) {
-                    break
-                }
-            }
-
-
-            //bir i döngüsü oluştur  buraya gelince azalsın
-        }
+    val s = s.trim()
+    if(s.isEmpty()){
+        return 0
+    }
+    var start = if(s[0] =='-' || s[0]=='+') {
+        1
     } else {
+        0
+    }
+    if(start !in s.indices || !s[start].isDigit()){
         return 0
     }
-    if (result.isNotEmpty()) {
-        try {
-            // Check if the result is within the valid range for integers
-            return result.toInt()
-        } catch (e: NumberFormatException) {
-            // Handle the case where the conversion exceeds the integer range
-            if (result[0] == '-') {
-                return Int.MIN_VALUE
-            }
-            if (result[0] == '+' || result[0].isDigit()) {
-                return Int.MAX_VALUE
+    var end = start
+    while(end + 1 in s.indices) {
+        if(!s[end + 1].isDigit()){
+            break
+        }
+        end++
+    }
+    var currentNumber = s.substring(start, end+1).toBigInteger()
+    val max = Int.MAX_VALUE
+    val min = Int.MIN_VALUE
+    var isSignPresent = if(s[0] == '-' || s[0] =='+') true else false
+    return when{
+        !isSignPresent -> {
+            if(currentNumber > max.toBigInteger()) {
+                2147483648 - 1
             } else {
-                return 0
+                currentNumber.toInt()
             }
         }
-    }
-    else{
-        return 0
+        else -> {
+            if(currentNumber > max.toBigInteger()){
+                if(s[0] =='+') {
+                    2147483648 - 1
+                } else {
+                    Int.MIN_VALUE
+                }
+            } else {
+                var sign = if(s[0] =='-') -1 else 1
+                sign * currentNumber.toInt()
+            }
+        }
     }
 }
