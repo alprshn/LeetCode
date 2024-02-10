@@ -18,7 +18,7 @@ fun romanToInt(s: String): Int {
     {
         val romanNumber = s[i]
         if (hashMap.contains(romanNumber)){
-            resulta = hashMap[romanNumber]!!
+            resulta += hashMap[romanNumber]!!
         }
     }
 
