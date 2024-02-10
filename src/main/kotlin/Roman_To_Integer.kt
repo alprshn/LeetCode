@@ -1,7 +1,7 @@
 fun main(args: Array<String>) {
 
     var a = romanToInt("III")
-    println(a)
+    println(a.toString())
 }
 
 fun romanToInt(s: String): Int {
@@ -13,8 +13,15 @@ fun romanToInt(s: String): Int {
     hashMap['C']= 100
     hashMap['D']= 500
     hashMap['M']= 1000
+    var resulta: Int = 0
+    for (i in s.indices)
+    {
+        val romanNumber = s[i]
+        if (hashMap.contains(romanNumber)){
+            resulta = hashMap[romanNumber]!!
+        }
+    }
 
-
-    return 0
+    return resulta
 }
 
