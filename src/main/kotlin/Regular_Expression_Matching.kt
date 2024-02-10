@@ -5,6 +5,5 @@ fun main(args: Array<String>) {
 }
 
 fun isMatch(s: String, p: String): Boolean {
-
     return false
 }
