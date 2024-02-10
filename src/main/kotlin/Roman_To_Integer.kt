@@ -14,17 +14,22 @@ fun romanToInt(s: String): Int {
     hashMap['D']= 500
     hashMap['M']= 1000
     var result: Int = 0
-    for (i in s.indices)
-    {
+    var number = 0
+
+
+    var i = 0
+    while (i < s.length) { // Changed to while loop
         val romanNumber = s[i]
-        if (hashMap.contains(romanNumber)){
-            result += hashMap[romanNumber]!!
+        if (hashMap.contains(romanNumber)) {
             if (s[i] == 'I' && (s[i+1] == 'V'|| s[i+1] == 'X')){
-
+                number = hashMap[s[i+1]]?.minus(hashMap[romanNumber]!!)!!
+                result += number
+                i += 1
             }
+            result += hashMap[romanNumber]!!
         }
-
     }
+
 
     return result
 }
