@@ -34,7 +34,6 @@ fun romanToInt(s: String): Int {
             result += hashMap[romanNumber]!!
         }
         i++
-
     }
 
 
