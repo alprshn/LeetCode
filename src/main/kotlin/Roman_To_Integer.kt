@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
 
-    var a = romanToInt("IIIX")
+    var a = romanToInt("LVIII")
     println(a.toString())
 }
 
@@ -40,7 +40,6 @@ fun romanToInt(s: String): Int {
             else{
                 result += hashMap[romanNumber]!!
             }
-
         }
 
         i++
