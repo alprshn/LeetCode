@@ -17,8 +17,9 @@ fun romanToInt(s: String): Int {
     var i = 0
     while (i < s.length) { // Changed to while loop
         val romanNumber = s[i]
-        if (i < s.length - 1) {
-            if (hashMap.containsKey(romanNumber)) {
+        if (hashMap.containsKey(romanNumber)) {
+            if (i < s.length - 1) {
+
                 val nextRomanNumber = s[i + 1]
                 if ((romanNumber == 'I' && (nextRomanNumber == 'V' || nextRomanNumber == 'X'))
                     || (romanNumber == 'X' && (nextRomanNumber == 'L' || nextRomanNumber == 'C'))
@@ -29,14 +30,12 @@ fun romanToInt(s: String): Int {
                 } else {
                     result += hashMap[romanNumber]!!
                 }
+            } else {
+                result += hashMap[romanNumber]!!
             }
-        } else {
-            result += hashMap[romanNumber]!!
         }
         i++
     }
-
-
     return result
 }
 
